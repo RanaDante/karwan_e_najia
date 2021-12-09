@@ -1,0 +1,86 @@
+.custom_videos .rbd_videos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.custom_videos .rbd_videos .rbd_video {
+  width: 32%;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.custom_videos .rbd_videos .rbd_video .rbd_video_playback {
+  position: relative;
+  background-color: #0A2953;
+  z-index: -1;
+  width: 100%;
+  border-radius: 10px;
+}
+.custom_videos .rbd_videos .rbd_video .rbd_video_playback iframe {
+  width: 100%;
+  border-radius: 10px;
+  display: none;
+}
+.custom_videos .rbd_videos .rbd_video .rbd_video_playback .spinner_wrapper {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.custom_videos .rbd_videos .rbd_video .rbd_video_playback .spinner_wrapper img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  margin-left: -25px;
+  top: 50%;
+  margin-top: -25px;
+}
+.custom_videos .rbd_videos .rbd_video .rbd_video-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 10px;
+}
+.custom_videos .rbd_videos .rbd_video .rbd_video-item .rbd_video-title {
+  margin: 20px;
+  position: relative;
+  z-index: 2;
+}
+.custom_videos .rbd_videos .rbd_video .rbd_video-item .rbd_video-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 38, 62, 0.5);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.custom_videos .rbd_videos .rbd_video .rbd_video-item i.fa-play {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  line-height: 50px;
+  z-index: 2;
+  left: -5px;
+}

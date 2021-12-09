@@ -1,0 +1,21 @@
+Navigation : Right Align, Spacing.
+Social Media : ICon Size. border-radius.
+
+
+
+
+
+
+Slider Rounded Corners..
+Announcement section: Spacing..
+Images Section: Title in lIGHTBOX, font-weight.
+Content-of the day section: Streched Images..
+Video-Section: Vimeo Video In backgroud {FITVIDS.JS}
+Side-bar: Todays Question fONT SIZE
+Mobile-App Section: image size and  Font-weight
+Gallery-Page: NO LIGHTBOX, Give Links
+Footer Spacing
+CopyRight-Bar Font-spacing..
+Kalaam-Content : Font-size : Increase
+Audios Page: Media Queries.
+Contact-Page : Icon-sizes, Box-shadows
