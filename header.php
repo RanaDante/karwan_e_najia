@@ -51,7 +51,6 @@
     <![endif]-->
 
     <?php wp_head(); ?>
-
 </head>
 
 <body <?php body_class(); ?>>
@@ -105,7 +104,8 @@
         <div class="mbl-menu">
 
             <div class="mbl-menu-header">
-                <div class="logo">
+                <a href="<?php echo home_url(); ?>">
+                    <div class="logo">
                     <?php
                         $custom_logo_id = get_theme_mod( 'custom_logo' );
                         $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); 
@@ -116,8 +116,9 @@
                     ?>
                         <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.png" class="img-responsive" alt="Website's logo">
                     <?php endif; ?>
+                </a>
                 </div>
-
+                <?php get_search_form(); ?>
                 <button class="hamburger">&#9776;</button>
                 <button class="cross" style="font-family: sans-serif;">&times;</button>
             </div>

@@ -18,7 +18,8 @@
                     $video_args = array (
                         'post_type' => 'cpt_videos',
                         'posts_per_page' => 6,
-                        'order' => 'DESC'
+                        'order' => 'DESC',
+                        'orderby' => 'date'
                     );
                     $video_query = new wp_query($video_args);
                 ?>
@@ -66,9 +67,9 @@
 <?php foreach ( $terms as $term ) : 
     $video_args = array (
     'post_type' => 'cpt_videos',
-    // 'posts_per_page' => 4,
+    'posts_per_page' => NUMBEROFPOSTS,
     'category_name' => $term->name,
-    'order' => 'ASC'
+    'order' => 'DESC'
     );
     $video_query = new wp_query($video_args);
     $count = $video_query->found_posts;
@@ -97,18 +98,18 @@
             <div class="video-overlay"></div>
         </div>
 
-        <?php endwhile; wp_reset_postdata(); 
-            if($count>2): ?>
-            <div class="read kalaam-read-sec">
+        <?php endwhile; wp_reset_postdata(); ?>
+        
+
+    </div>
+        <?php if($count>2): ?>
+            <div class="read mt-20" >
                 <?php $section_category_url = home_url('/category/' . $term->slug."?page=video");?>
                 <a href="<?php echo $section_category_url;?>" class="read-more">مزید دیکھیں</a>
             </div>
         <?php endif; 
     
     endif; ?>
-
-    </div>
-  
 </section>
 <?php endforeach; ?>
            

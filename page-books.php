@@ -19,7 +19,7 @@
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 $book_args = array (
                     'post_type' => 'cpt_books',
-                    'posts_per_page' => 9,
+                    'posts_per_page' => NUMBEROFPOSTS,
                     'order' => 'DESC',
                     'paged' => $paged
                 );

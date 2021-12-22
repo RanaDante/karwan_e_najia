@@ -1,5 +1,6 @@
 <?php 
-
+define('NUMBEROFPOSTS',9);
+define('COUNT',10);
 
 if(!function_exists('theme_setup')):
     function theme_setup(){

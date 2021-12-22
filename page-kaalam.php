@@ -46,7 +46,7 @@
         <?php 
             $kaalam_args = array (
                 'post_type' => 'cpt_kaalams',
-                'posts_per_page' => 6,
+                'posts_per_page' => NUMBEROFPOSTS,
                 'order' => 'DESC',
                 'orderby' => 'date'
             );
@@ -71,7 +71,7 @@
 
     </div>
 
-    <?php if($count>6): ?>
+    <?php if($count>NUMBEROFPOSTS): ?>
     <div class="read">
         <a href="<?php the_field('page_link'); ?>" class="read-more">مزید دیکھیں</a>
     </div>

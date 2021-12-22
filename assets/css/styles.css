@@ -330,6 +330,13 @@ a {
     cursor: pointer;
 }
 
+.slider__control img{
+    background-color: #14263E;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
 .slider__control--prev {
     margin-right: 20px;
     color: #fff;
@@ -911,9 +918,10 @@ SECTION OF THE DAY
 }
 
 .option label {
-    padding-right: 5px;
+    padding-right: 15px;
     margin-top: -5px;
     font-size: 14px;
+    display: block;
 }
 
 .answer-btn {
@@ -1590,7 +1598,16 @@ input[type="email"]:focus {
     font-size: 25px;
     color: #14263E;
 }
-
+.contact-col>a{
+    color: #000 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 12px;
+}
+.contact-col>p>a{
+    color: #000 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 12px;
+}
 .contact-col p {
     font-family: 'Montserrat', sans-serif !important;
     font-size: 12px;
@@ -1925,4 +1942,19 @@ a.blue{
     border-radius: 10px;
     height: 82%;
     padding-top: 50%;
+}
+
+.option label:hover, .question_answer_radio:hover{
+    cursor: pointer !important;
+}
+.question_answer_radio{
+    margin-left: 5px;
+}
+/* 
+.player-bar-loaded:hover{
+} */
+
+.player-bar:hover{
+    cursor: pointer;
+
 }

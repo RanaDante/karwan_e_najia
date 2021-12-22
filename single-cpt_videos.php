@@ -11,8 +11,9 @@
                 <?php 
                     $video_args = array (
                         'post_type' => 'cpt_videos',
-                        // 'posts_per_page' => 6,
-                        'order' => 'DESC'
+                        'posts_per_page' => 6,
+                        'order' => 'DESC',
+                        'orderby' => 'date'
                     );
                     $video_query = new wp_query($video_args);
                 ?> 
@@ -22,7 +23,8 @@
                             <img src="images/video-thumbnail1.png" alt="">
                         </div>
                         <div class="video-title">
-                            <a href="#">ڈاکومینٹری ٹریلر(روحانی درسگاہ کاروانِ ناجیہ)۲۰۱۷</a>
+                            <a href="#"> <?php the_title(); ?>
+                             </a>
                         </div>
                         <div class="event-3"></div>
                     </div>

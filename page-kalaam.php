@@ -48,10 +48,11 @@
         
         <?php foreach ( $terms as $term ) : 
             $kalaam_args = array (
-            'post_type' => 'cpt_kalaam',
-            'posts_per_page' => 10,
-            'category_name' => $term->name,
-            'order' => 'ASC'
+                'post_type' => 'cpt_kalaam',
+                'posts_per_page' => COUNT,
+                'category_name' => $term->name,
+                'order' => 'DESC',
+                'orderby' => 'date'
             );
             
             $kalaam_query = new wp_query($kalaam_args); 

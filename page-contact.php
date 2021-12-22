@@ -13,43 +13,7 @@
             </div>
             <!-- <form action="#" dir="ltr"> -->
                 <?php the_content(); ?>
-                <!-- <div class="contact">
-                    
-                    <div class="field-group-con">
-                        <label class="label" for="name">Name</label>
-                        <input type="text" class="input-field" id="name" placeholder="eg : Abdul Basit">
-                        
-                    </div>
-
-                    <div class="field-group-con">
-                        <label class="label" for="subject">Subject</label>
-                        <input type="text" class="input-field" id="subject" placeholder="Reason to contact here.">
-                    </div>
-
-                    <div class="field-group-con">
-                        <label class="label" for="email">Email Address</label>
-                        <input type="email" class="input-field" id="email" placeholder="Please enter your Email Address here.">    
-                    </div>
-
-                    <div class="field-group-con">
-                        <label class="label" for="phone">Phone Number</label>
-                        <input type="text" class="input-field" id="phone" placeholder="Please enter your Phone Number here.">
-                    </div>
-
-                    <div class="field-group-con address">
-                        <label class="label" for="address">Address</label>
-                        <input type="text" class="input-field" id="address" placeholder="Please enter your Address here.">
-                    </div>
-
-                    <div class="field-group-con message">
-                        <label class="label" for="message">Message</label>
-                        <textarea class="input-field" id="message" cols="30" rows="5" placeholder="Please enter your Message here."></textarea>
-                    </div>
-
-                    <div class="button">
-                        <input type="submit" value="Send" class="contact-btn">
-                    </div>
-                </div> -->
+                
             <!-- </form> -->
 
             <div class="contact-bar">
@@ -61,13 +25,23 @@
                 <div class="contact-col">
                     <i class="far fa-envelope"></i>
                     <h3 class="head3">Email Address</h3>
-                    <p><?php the_field('email'); ?></p>
+                    <p><?php //the_field('email'); ?></p>
+                    <a href="mailto:<?php the_field('email'); ?>"><?php the_field('email'); ?></a>
 
                 </div>
                 <div class="contact-col">
                     <i class="fas fa-phone-square"></i>
                     <h3 class="head3">Phone Number</h3>
-                    <p><?php the_field('phone_number'); ?></p>
+                    <?php if( have_rows('phone_number') ) :?>
+                        <?php while( have_rows('phone_number') ) : the_row();?>
+                            <p><?php the_sub_field('title_of_number');?> : 
+                            <a href="tel:<?php the_sub_field('phone_number');?>">
+                            <?php the_sub_field('phone_number');?></a></p>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                        
+                    
+                    <!-- <p><?php //the_field('phone_number'); ?></p> -->
 
                 </div>
             </div>

@@ -15,7 +15,7 @@
 
             $single_args = array (
                 'post_type' => 'cpt_kaalams',
-                'posts_per_page' => 3,
+                'posts_per_page' => NUMBEROFPOSTS,
                 'order' => 'DESC',
                 'orderby' => 'date',
                 'paged' => $paged

@@ -90,7 +90,7 @@
         order: -1;
     }
     .second-item, .newsletter, .book{
-        width: 48%;
+        width: 45%;
         margin-top: 20px;
     }
     .founder-msg{
@@ -146,6 +146,9 @@
     .main, .side-bar{
         width: 100% !important;
     }
+    .side-bar{
+        margin-top: 20px;
+    }
 }
 
 @media screen and (max-width: 880px) {
@@ -155,6 +158,10 @@
     }
 }
 @media screen and (max-width: 768px) {
+    #overlay h1{
+        font-size: 18px;
+        font-weight: 400;
+    }
     .w-75,.wrap {
         width:90%;
     }
@@ -167,6 +174,7 @@
     .mbl-menu-header{
         width: 90%;
         margin: 0 auto;
+        padding-bottom: 15px;
     }.hamburger,
     .cross{
         left: 3%;

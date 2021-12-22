@@ -18,7 +18,7 @@
     <?php foreach ( $terms as $term ) : 
         $audio_args = array (
             'post_type' => 'cpt_audios',
-            'posts_per_page' => 10,
+            'posts_per_page' => COUNT,
             'category_name' => $term->name,
             'order' => 'ASC'
         );
