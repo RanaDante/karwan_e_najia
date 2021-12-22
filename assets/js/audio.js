@@ -1,11 +1,6 @@
-/*
- * $(selector).initAudioPlayer();
- * 不支持自动播放-想了下，用播放器样式的一般都不自动播放，影响用户体验。一般要自动播放的都不需要进度条之类的，需要一个切换按钮即可。
- * 不支持audio的浏览器直接return
- */
 
 ;(function($, window, document, undefined) {
-	// 播放器样式 - 替换到css更改样式即可
+	// console.log('');
 	if (!$('#ppq-audio-player-style').length) {
 		var style = '<style id="ppq-audio-player-style" type="text/css">\
 			.audio-hidden{width:0;height:0;visibility:hidden}\

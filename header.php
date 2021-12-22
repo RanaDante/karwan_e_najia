@@ -1,3 +1,40 @@
+<?php require_once('HijriDateLib.php'); 
+    
+    function urdu_date(){
+
+        $week = array(
+            'Monday' => 'پیر',
+            'Tuesday' => 'منگل',
+            'Wednesday' => 'بدھ',
+            'Thursday' => 'جمعرات',
+            'Friday' => 'جمعه',
+            'Saturday' => 'هفته',
+            'Sunday' => 'اتوار'
+        );
+
+        $months = array(
+            'January' => 'جنوری',
+            'February' => 'فروری',
+            'March' => 'مارچ',
+            'April' => 'اپریل',
+            'May' => 'مئی',
+            'June' => 'جون',
+            'July' => 'جولائی',
+            'August' => ' اگست',
+            'September' => ' ستمبر',
+            'October' => 'اکتوبر',
+            'November' => 'نومبر',
+            'December' => 'دسمبر'
+        );
+        
+        $date = $week[date('l')] ."&nbsp;". date('d') ."&nbsp;". $months[ date('F')] ."&nbsp;".date('Y') ;
+
+        return $date;
+    }
+
+   
+?>
+
 <!DOCTYPE html>
 <html  <?php language_attributes(); ?> dir="rtl">
 
@@ -22,8 +59,8 @@
         <!-- TOP BAR START -->
         <div class="top-bar">
             <div class="wrap">
-                <p>پیر 15 نومبر 2021 - پیر، 9 ر بیع الثانی 1443</p>
-
+                <!-- <p>پیر 15 نومبر 2021 - پیر، 9 ر بیع الثانی 1443</p> -->
+                <p><?php echo urdu_date(); echo "-"; echo (new hijri\datetime())->format("D، _j _M _Y");  ?> </p>
                 <?php if ( is_active_sidebar( 'social-1' ) ) : ?>
                     <?php dynamic_sidebar( 'social-1' ); ?>
                 <?php endif; ?>

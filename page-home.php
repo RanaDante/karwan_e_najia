@@ -9,7 +9,7 @@
 <?php 
     $args = array (
         'post_type' => 'cpt_announcements',
-        'posts_per_page' => 3,
+        'posts_per_page' => 4,
         'order' => 'DESC'
     );
     $announcement_query = new wp_query($args);
@@ -18,413 +18,304 @@
 
 <!-- ANNOUNCEMENT SECTIONS -->
 <section class="announcement-section w-75">
+    <h1 class="h1">اعلانات</h1>
+    <!-- ANNOUNCEMENT SECTION SLIDER -->
+    <div class="slider">
+        <ul class="js__slider__images slider__images">
 
-<h1 class="h1">اعلانات</h1>
+            <?php if($announcement_query->have_posts()): while($announcement_query->have_posts()): $announcement_query->the_post(); ?>
+                <li class="slider__images-item" style="background-image:url(<?php the_field('announcement_image'); ?>) ">
+                    <div class="slide-content">
+                        <p><?php the_field('excerpt'); ?></p>
+                    </div>
+                </li>
+                
+            <?php endwhile; wp_reset_postdata(); endif; ?>
+            
+            <?php if($announcement_query->have_posts()): while($announcement_query->have_posts()): $announcement_query->the_post(); ?> 
+                <li class="slider__images-item" style="display: none;"><img class="slider__images-image"
+                    src="https://unsplash.it/800/450?image=1026" /></li>
+            <?php endwhile; wp_reset_postdata(); endif; ?>
 
-
-<div class="slider">
-    <ul class="js__slider__images slider__images">
-        <?php if($announcement_query->have_posts()): while($announcement_query->have_posts()): $announcement_query->the_post(); ?>
-            <li class="slider__images-item" style="background-image:url(<?php the_field('announcement_image'); ?>) ">
-                <div class="slide-content">
-                    <p><?php the_field('excerpt'); ?></p>
-                </div>
-            </li>
-        <?php endwhile; wp_reset_postdata(); endif; ?>
-    </ul>
-    <div class="slider__controls">
-        <span class="slider__control js__slider__control--prev slider__control--prev">
-            <img src="images/Icon awesome-arrow-left-1.png" alt="">
-        </span>
-        <ol class="js__slider__pagers slider__pagers" style="display: none;"></ol>
-        <span class="slider__control js__slider__control--next slider__control--next">
-            <img src="images/Icon awesome-arrow-left.png" alt="">
-        </span>
+        </ul>
+        <div class="slider__controls">
+            <span class="slider__control js__slider__control--prev slider__control--prev">
+                <img src="<?php bloginfo('template_directory'); ?>/assets/images/Icon awesome-arrow-left-1.png" alt="">
+            </span>
+            <ol class="js__slider__pagers slider__pagers" style="display: none;"></ol>
+            <span class="slider__control js__slider__control--next slider__control--next">
+                <img src="<?php bloginfo('template_directory'); ?>/assets/images/Icon awesome-arrow-left.png" alt="">
+            </span>
+        </div>
     </div>
-</div>
+    <!-- EVENTS -->
+    <div class="events">
+        <?php 
+            $event_args = array (
+                'post_type' => 'cpt_events',
+                'posts_per_page' => 3,
+                'order' => 'DESC'
+            );
+            $event_query = new wp_query($event_args);
+        ?>  
 
-<div class="events">
-    <a href="#" class="event-item">                
-        <div class="event-thumbnail">
-            <img src="<?php bloginfo('template_directory'); ?>/assets/images/event (1).png" alt="">
-        </div>
+        <?php if($event_query->have_posts()): while($event_query->have_posts()): $event_query->the_post(); ?>
+            <a href="<?php the_permalink() ?>" class="event-item">                
+                <div class="event-thumbnail">
+                    <img src="<?php the_field('event_image'); ?>" alt="">
+                </div>
 
-        <div class="event-excerpt">
-            <p>۹ اپریل ۲۰۱۷ بروز اتوار صبح ۱۰ بجے روحانی درسگاہ کاروان ناجیہ چکوال میں روحانی محفل کا انعقاد کیا
-                جارہا ہے۔
-            </p>
-            <p class="event-link"> مزید <span class="border-btm"> دیکھیں </span></p>
-        </div>
-    </a>
+                <div class="event-excerpt">
+                    <p><?php the_title() ?></p>
+                    <p class="event-link"> مزید <span class="border-btm"> دیکھیں </span></p>
+                </div>
+            </a>   
+        <?php endwhile; wp_reset_postdata(); endif; ?>
 
-    <a href="#" class="event-item">                
-        <div class="event-thumbnail">
-            <img src="images/event (2).png" alt="">
-        </div>
-
-        <div class="event-excerpt">
-            <p>ساری زندگی امن و محبت کا درس دینے والے لعل شہباز قلندر کی درگاہ لہو سے لال ہوگئی
-            </p>
-            <p class="event-link"> مزید <span class="border-btm"> دیکھیں </span></p>
-        </div>
-    </a>
-        
-    <a href="#" class="event-item">                
-        <div class="event-thumbnail">
-            <img src="images/event (3).png" alt="">
-        </div>
-
-        <div class="event-excerpt">
-            <p>شورکوٹ میں ہونے والے سالانہ روحانی اجتماع میں اُمتِ مسلمہ کی حالتِ زار پر آپ مدظلہ العالی کا
-                خطاب</p>
-            <p class="event-link"> مزید <span class="border-btm"> دیکھیں </span></p>
-        </div>
-    </a>
-    
-    <!-- <div class="event-item">
-        <div class="event-thumbnail">
-            <img src="images/event (3).png" alt="">
-        </div>
-        <div class="event-excerpt">
-            <p>شورکوٹ میں ہونے والے سالانہ روحانی اجتماع میں اُمتِ مسلمہ کی حالتِ زار پر آپ مدظلہ العالی کا
-                خطاب</p>
-            <a href="#" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
-        </div>
-    </div> -->
-
-</div>
+    </div>
 </section>
 
 <!-- POPULAR NEWS -->
 <section class="popular-news w-75">
-<h1 class="h1">مقبول خبریں</h1>
-<div class="news">
-    <div class="news-item">
-        <a href="#">
-            <div class="thumbnail-bg" style="background-image: url(images/news1.jpg);"></div>
-            <h3 class="h3">شہدائے کربلا نے دینِ اسلام کے اُجڑتے ہوئے گلشن کی اپنے پاک خون سے سرشار کر دیا۔</h3>
-            <p> ایک مرتبہ حضورِ نبی اکرم ﷺ نے اللہ رب العزت کی بارگاہ میں التجا کی کہ اےپروردگار اپنے دین کی مضبوطی
-                اور تقویت کیلئے ہشام کےبیٹے یا خطاب کےبیٹے کو مشرف با اسلام فرما۔</p>
-            <a href="#" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
-        </a>
-    
+    <h1 class="h1">مقبول خبریں</h1>
+    <div class="news">
+        <?php 
+            $single_args = array (
+                'post_type' => 'post',
+                'posts_per_page' => 6,
+                'order' => 'DESC'
+            );
+            $single_query = new wp_query($single_args);
+        ?> 
+
+        <?php if($single_query->have_posts()): while($single_query->have_posts()): $single_query->the_post(); ?>
+            <div class="news-item">  
+                <a href="<?php the_permalink(); ?>">
+                    <div class="thumbnail-bg" style="background-image: url(<?php the_post_thumbnail_url(); ?>);"></div>
+                    <h3 class="h3"><?php the_title(); ?></h3>
+                    
+                    <?php the_excerpt(); ?>
+                    <a href="<?php the_permalink(); ?>" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
+                </a>
+            </div>
+        <?php endwhile; wp_reset_postdata(); endif; ?>
+
+        
+
     </div>
-
-    <div class="news-item">
-        <a href="#">
-            <div class="thumbnail-bg" style="background-image: url(images/news2.jpg);"></div>
-            <h3 class="h3">شہدائے کربلا نے دینِ اسلام کے اُجڑتے ہوئے گلشن کی اپنے پاک خون سے سرشار کر دیا۔</h3>
-            <p> ایک مرتبہ حضورِ نبی اکرم ﷺ نے اللہ رب العزت کی بارگاہ میں التجا کی کہ اےپروردگار اپنے دین کی مضبوطی
-                اور تقویت کیلئے ہشام کےبیٹے یا خطاب کےبیٹے کو مشرف با اسلام فرما۔</p>
-            <a href="#" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
-        </a>
+    <div class="read">
+        <a href="<?php the_field('news_page_link'); ?>" class="read-more">مزید دیکھیں</a>
     </div>
-
-    <div class="news-item">
-        <a href="#">
-            <div class="thumbnail-bg" style="background-image: url(images/news3.jpg);"></div>
-            <h3 class="h3">شہدائے کربلا نے دینِ اسلام کے اُجڑتے ہوئے گلشن کی اپنے پاک خون سے سرشار کر دیا۔</h3>
-            <p> ایک مرتبہ حضورِ نبی اکرم ﷺ نے اللہ رب العزت کی بارگاہ میں التجا کی کہ اےپروردگار اپنے دین کی مضبوطی
-                اور تقویت کیلئے ہشام کےبیٹے یا خطاب کےبیٹے کو مشرف با اسلام فرما۔</p>
-            <a href="#" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
-        </a>
-    </div>
-
-
-    <div class="news-item">
-        <a href="#">
-            <div class="thumbnail-bg" style="background-image: url(images/news3.jpg);"></div>
-            <h3 class="h3">شہدائے کربلا نے دینِ اسلام کے اُجڑتے ہوئے گلشن کی اپنے پاک خون سے سرشار کر دیا۔</h3>
-            <p> ایک مرتبہ حضورِ نبی اکرم ﷺ نے اللہ رب العزت کی بارگاہ میں التجا کی کہ اےپروردگار اپنے دین کی مضبوطی
-                اور تقویت کیلئے ہشام کےبیٹے یا خطاب کےبیٹے کو مشرف با اسلام فرما۔</p>
-            <a href="#" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
-        </a>
-    </div>
-
-
-    <div class="news-item">
-        <a href="#">
-            <div class="thumbnail-bg" style="background-image: url(images/news3.jpg);"></div>
-            <h3 class="h3">شہدائے کربلا نے دینِ اسلام کے اُجڑتے ہوئے گلشن کی اپنے پاک خون سے سرشار کر دیا۔</h3>
-            <p> ایک مرتبہ حضورِ نبی اکرم ﷺ نے اللہ رب العزت کی بارگاہ میں التجا کی کہ اےپروردگار اپنے دین کی مضبوطی
-                اور تقویت کیلئے ہشام کےبیٹے یا خطاب کےبیٹے کو مشرف با اسلام فرما۔</p>
-            <a href="#" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
-        </a>
-    </div>
-
-    <div class="news-item">
-        <a href="#">
-            <div class="thumbnail-bg" style="background-image: url(images/news3.jpg);"></div>
-            <h3 class="h3">شہدائے کربلا نے دینِ اسلام کے اُجڑتے ہوئے گلشن کی اپنے پاک خون سے سرشار کر دیا۔</h3>
-            <p> ایک مرتبہ حضورِ نبی اکرم ﷺ نے اللہ رب العزت کی بارگاہ میں التجا کی کہ اےپروردگار اپنے دین کی مضبوطی
-                اور تقویت کیلئے ہشام کےبیٹے یا خطاب کےبیٹے کو مشرف با اسلام فرما۔</p>
-            <a href="#" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
-        </a>
-    </div>
-
-</div>
-<div class="read">
-    <a href="#" class="read-more">مزید دیکھیں</a>
-</div>
 </section>
 
 <!-- LATEST IMAGES -->
+<?php 
+    $gallery_args = array (
+        'post_type' => 'cpt_galleries',
+        'posts_per_page' => 1,
+        'order' => 'ASC'
+    );
+    $gallery_query = new wp_query($gallery_args);
+?> 
+
 <section class="latest-images w-75" id="gallery">
-<h1 class="h1">تازہ تصاویر</h1>
-<div class="images" id="image-gallery">
+    <h1 class="h1">تازہ تصاویر</h1>
+    <div class="images">
 
-    <div class="image">
-        <i class="far fa-image"></i>
-        <div class="img-wrapper">
-            <a href="images/image3.jpg" title="IMAGE 1 TITLE">
-                <img src="images/image3.jpg" alt="Aternative text to images" class="img-responsive" >
-            </a>
-            <div class="img-overlay"></div>
-        </div>
-        <div class="image-title">
-            <p>Image Title Here</p>
-        </div>
+        <?php if($gallery_query->have_posts()): while($gallery_query->have_posts()): $gallery_query->the_post(); ?>
+        <?php if( have_rows('gallery') ) :?>
+            <?php while( have_rows('gallery') ) : the_row();?>
+                <div class="image">
+                    <i class="far fa-image"></i>
+                    <div class="img-wrapper">
+                        <a href="<?php the_sub_field('gallery_image'); ?>" title="<?php the_sub_field('gallery_image_title'); ?>">
+                            <img src="<?php the_sub_field('gallery_image'); ?>" data-title="<?php the_sub_field('gallery_image_title'); ?>" alt="Aternative text to images" class="img-responsive" >
+                        </a>
+                        <div class="img-overlay"></div>
+                    </div>
+                    <div class="image-title">
+                        <p><?php the_sub_field('gallery_image_title'); ?></p>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
+        <?php endwhile; wp_reset_postdata(); endif; ?>      
     </div>
-
-    <div class="image">
-        <i class="far fa-image"></i>
-        <div class="img-wrapper">
-            <a href="images/image2.jpg" title="IMAGE 2 TITLE">
-                <img src="images/image2.jpg" alt="Aternative text to images" class="img-responsive">
-            </a>
-            <div class="img-overlay"></div>
-        </div>
-        <div class="image-title">
-            <p>Image Title Here</p>
-        </div>
+    <div class="read">
+        <a href="<?php the_field('gallery_page_link'); ?>" class="read-more">مزید دیکھیں</a>
     </div>
-
-    <div class="image">
-        <i class="far fa-image"></i>
-        <div class="img-wrapper">
-            <a href="images/image1.jpg" title="IMAGE 3 TITLE">
-                <img src="images/image1.jpg" alt="Aternative text to images" class="img-responsive">
-            </a>
-            <div class="img-overlay"></div>
-        </div>
-        <div class="image-title">
-            <p>Image Title Here</p>
-        </div>
-    </div>
-
-    <div class="image">
-        <i class="far fa-image"></i>
-        <div class="img-wrapper">
-            <a href="images/image4.jpg" title="IMAGE 4 TITLE">
-                <img src="images/image4.jpg" alt="Aternative text to images" class="img-responsive">
-            </a>
-            <div class="img-overlay"></div>
-        </div>
-        <div class="image-title">
-            <p>Image Title Here</p>
-        </div>
-    </div>
-
-    <div class="image">
-        <i class="far fa-image"></i>
-        <div class="img-wrapper">
-            <a href="images/image4.jpg" title="IMAGE 5 TITLE">
-                <img src="images/image4.jpg" alt="Aternative text to images" class="img-responsive">
-            </a>
-            <div class="img-overlay"></div>
-        </div>
-        <div class="image-title">
-            <p>Image Title Here</p>
-        </div>
-    </div>
-
-    <div class="image">
-        <i class="far fa-image"></i>
-        <div class="img-wrapper">
-            <a href="images/image2.jpg" title="IMAGE 6 TITLE">
-                <img src="images/image2.jpg" alt="Aternative text to images" class="img-responsive">
-            </a>
-            <div class="img-overlay"></div>
-        </div>
-        <div class="image-title">
-            <p>Image Title Here</p>
-        </div>
-    </div>
-
-    <div class="image">
-        <i class="far fa-image"></i>
-        <div class="img-wrapper">
-            <a href="images/image1.jpg" title="IMAGE 7 TITLE">
-                <img src="images/image1.jpg" alt="Aternative text to images" class="img-responsive">
-            </a>
-            <div class="img-overlay"></div>
-        </div>
-        <div class="image-title">
-            <p>Image Title Here</p>
-        </div>
-    </div>
-
-    <div class="image">
-        <i class="far fa-image"></i>
-        <div class="img-wrapper">
-            <a href="images/image4.jpg" title="IMAGE 8 TITLE">
-                <img src="images/image4.jpg" alt="Aternative text to images" class="img-responsive">
-            </a>
-            <div class="img-overlay"></div>
-        </div>
-        <div class="image-title">
-            <p>Image Title Here</p>
-        </div>
-    </div>
-</div>
-<div class="read">
-    <a href="#" class="read-more">مزید دیکھیں</a>
-</div>
 </section>
 
-<!-- AYAAT OF THE DAY -->
+<!-- CONTENT OF THE DAY -->
 <section class="content-of-day">
-<div class="content-wrap w-75">
-    <div class="item">
-        <h2>آیات</h2>
-        <div class="content-img" style="background-image: url(images/ayat.jpg);"></div>
+    <div class="content-wrap w-75">
+        <?php 
+            $daily_content_args = array (
+                'post_type' => 'cpt_daily_content',
+                'posts_per_page' => 1,
+                'order' => 'DESC'
+            );
+            $daily_content_query = new wp_query($daily_content_args);
+        ?> 
+        <?php if($daily_content_query->have_posts()): while($daily_content_query->have_posts()): $daily_content_query->the_post(); ?>
+        <div class="item">
+            <h2>آیات</h2>
+            <div class="content-img" style="background-image: url(<?php the_field('ayat_image')?>);"></div>
+        </div>
+    
+        <div class="item">
+            <h2>حدیث مبارک</h2>
+            <div class="content-img" style="background-image: url(<?php the_field('hadith_image')?>);"></div>
+        </div>
+        <div class="item">
+            <h2>اقوال مبارک</h2>
+            <div class="content-img" style="background-image: url(<?php the_field('qaul_image')?>);"></div>
+        </div>
+        <?php endwhile; wp_reset_postdata(); endif; ?>
     </div>
-    <div class="item">
-        <h2>حدیث مبارک</h2>
-        <div class="content-img" style="background-image: url(images/hadith.jpg);"></div>
-        <!-- <img src="images/hadith.jpg" alt=""> -->
-        
-    </div>
-    <div class="item">
-        <h2>اقوال مبارک</h2>
-        <div class="content-img" style="background-image: url(images/qaul.jpg);"></div>
-        <!-- <img src="images/qaul.jpg" alt=""> -->
-
-    </div>
-</div>
 </section>
 
 <!-- VIDEOS SECTION -->
-<section class="videos-section w-75" id="gallery">
-<h1 class="h1">وڈیوز</h1>
-<div class="videos">
-    <a href="#" class="video-item" style="background-image: url(images/video-thumbnail1.png);">
-        <h3 class="video-title">ڈاکومینٹری ٹریلر(روحانی درسگاہ کاروانِ ناجیہ) ۲۰۱۷ </h3>
-        <i class="fas fa-play"></i>
-        <div class="video-overlay"></div>
-        <div class="bg-video"></div>
-    </a>
 
-    <a href="#" class="video-item" style="background-image: url(images/video-thumbnail2.jpg);">
-        <h3 class="video-title">روک لیتی ہے آپ کی نسبت۔ صاحبزادہ حق نواز منصور </h3>
-        <i class="fas fa-play"></i>
-        <div class="video-overlay"></div>
-    </a>
+<!-- روحانی اجتماعات -->
+<section class="custom_videos w-75" id="gallery">
+    <h1 class="h1">وڈیوز</h1>
+    
+    <div class="rbd_videos">
+        <?php 
+            $video_args = array (
+                'post_type' => 'cpt_videos',
+                'posts_per_page' => 6,
+                'order' => 'DESC'
+            );
+            $video_query = new wp_query($video_args);
+        ?> 
+        <?php if($video_query->have_posts()): while($video_query->have_posts()): $video_query->the_post(); ?>
+        <div class="rbd_video">
+            <div class="rbd_video_playback">
+                <iframe class="visible_iframe" src="<?php the_field('video_vimeo_link'); ?>" allow="autoplay" id="test_id" width="400" height="225" frameborder="0"></iframe>
 
-    <a href="#" class="video-item" style="background-image: url(images/video-thumbnail3.jpg);">
-        <h3 class="video-title">روحانی محفل چکوال۰۴ </h3>
-        <i class="fas fa-play"></i>
-        <div class="video-overlay"></div>
-    </a>
-
-    <a href="#" class="video-item" style="background-image: url(images/video-thumbnail3.jpg);">
-        <h3 class="video-title">روحانی محفل چکوال۰۴ </h3>
-        <i class="fas fa-play"></i>
-        <div class="video-overlay"></div>
-    </a>
-
-    <a href="#" class="video-item" style="background-image: url(images/video-thumbnail3.jpg);">
-        <h3 class="video-title">روحانی محفل چکوال۰۴ </h3>
-        <i class="fas fa-play"></i>
-        <div class="video-overlay"></div>
-    </a>
-
-    <a href="#" class="video-item" style="background-image: url(images/video-thumbnail3.jpg);">
-        <h3 class="video-title">بھول ہوئی ہے </h3>
-        <i class="fas fa-play"></i>
-        <div class="video-overlay"></div>
-    </a>
-
-
-</div>
-<div class="read">
-    <a href="#" class="read-more">مزید دیکھیں</a>
-</div>
+                <div class="spinner_wrapper">
+                    <img src="<?php bloginfo('template_directory'); ?>/assets/images/spinner.svg" class="img-responsive" alt="Spinner">
+                </div>
+            </div>
+            <a href="#" class="rbd_video-item" style="background-image: url('<?php the_post_thumbnail_url(); ?>');">
+                <h3 class="rbd_video-title"><?php the_title(); ?></h3>
+                <i class="fas fa-play"></i>
+                <div class="rbd_video-overlay"></div>
+            </a>
+        </div>
+        <?php endwhile; wp_reset_postdata(); endif; ?>  
+      
+    </div>
+    <div class="read videos-read">
+        <a href="<?php the_field('video_page_link'); ?>" class="read-more">مزید دیکھیں</a>
+    </div>
 </section>
+
 
 <!-- /* TWO COLUMN LAYOUT */ -->
 <section class="w-75 two-column">
 
-<?php if(have_rows('mobile_application')): while(have_rows('mobile_application')): the_row(); ?>
-<div class="main mbl-sec">
-    <div class="sub-title">
-        <h3><?php the_sub_field('section_heading'); ?></h3>
-    </div>
-    <div class="content home-content">
+    <?php if(have_rows('mobile_application')): while(have_rows('mobile_application')): the_row(); ?>
+        <div class="main mbl-sec">
+            <div class="sub-title">
+                <h3><?php the_sub_field('section_heading'); ?></h3>
+            </div>
+            <div class="content home-content">
 
-        <div class="content-col">
-            <h3><?php the_sub_field('main_heading'); ?></h3>
-            <br>
-            <p><?php the_sub_field('content'); ?></p>
+                <div class="content-col">
+                    <h3><?php the_sub_field('main_heading'); ?></h3>
+                    <br>
+                    <p><?php the_sub_field('content'); ?></p>
 
-            <div class="app-links">
-                <a href="#">
-                    <img src="<?php the_sub_field('playstore_icon'); ?>" alt="Google Play link">
-                </a>
-                <a href="#">
-                    <img src="<?php the_sub_field('appstore_icon'); ?>" alt="Google Play link">
-                </a>
+                    <div class="app-links">
+                        <a href="#">
+                            <img src="<?php the_sub_field('playstore_icon'); ?>" alt="Google Play link">
+                        </a>
+                        <a href="#">
+                            <img src="<?php the_sub_field('appstore_icon'); ?>" alt="Google Play link">
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <div class="mobile-app-ss">
+                    <img src="<?php the_sub_field('app_screenshot'); ?>" alt="Application Screenshot">
+                </div>
+            </div>
+
+        </div>
+    <?php endwhile; endif; ?>
+
+    <?php 
+        $qustion_args = array (
+            'post_type' => 'cpt_questions',
+            'posts_per_page' => 1,
+            'order' => 'DESC',
+            
+        );
+        $qustion_query = new wp_query($qustion_args);
+    ?>
+
+    <div class="side-bar">
+        <div class="side-bar-item">
+            <div class="sub-title-urdu">
+                <p>آج کا سوال</p>
+            </div>
+            <div class="content">
+                <form action="#">  
+                    <?php if($qustion_query->have_posts()): while($qustion_query->have_posts()): $qustion_query->the_post(); ?>
+                        <div class="content">
+                            <!-- <div class="right-answer" >
+                                <p>Answer is Correct</p>
+                            </div> -->
+                            <p>
+                                <?php the_title(); ?>
+                            </p>
+                            
+                            <div class="answer">
+                                <?php if(have_rows('answer_options')): while(have_rows('answer_options')): the_row(); ?>
+                                    <?php if(get_sub_field('correct_answer')): ?>
+                                        <input type="hidden" class="correct_answer"  value="<?php the_sub_field('question_choice'); ?>">
+                                    <?php endif; ?>
+
+                                    <div class="option">
+                                        <label for="<?php echo str_replace(' ', '_', get_sub_field('question_choice')); ?>">
+                                            <input type="radio" name="question_answer" class="question_answer_radio" value="<?php the_sub_field('question_choice'); ?>" id="<?php echo str_replace(' ', '_', get_sub_field('question_choice')); ?>">
+                                            <?php the_sub_field('question_choice'); ?>
+                                        </label>
+                                    </div>
+                                
+                                <?php endwhile; endif; ?>
+                            </div>
+                            <button type="submit" class="answer-btn">جواب کے لئے کلک کریں</button>
+                        </div>
+                    <?php endwhile; wp_reset_postdata(); endif; ?>
+                </form>
             </div>
         </div>
 
-
-
-        <div class="mobile-app-ss">
-            <img src="<?php the_sub_field('app_screenshot'); ?>" alt="">
-        </div>
-    </div>
-
-</div>
-<?php endwhile; endif; ?>
-
-<div class="side-bar">
-    <div class="side-bar-item">
-        <div class="sub-title-urdu">
-            <p>آج کا سوال</p>
-        </div>
-        <div class="content">
-            <p>سوال : ایک روایت کے مطابق حضرت زبیرؓ وہ کتنوے شخص تھے جنہوں نے بچپن میں ہی اسلام قبول کر لیا؟</p>
-            <div class="answer">
-                <div class="option">
-                    <input type="radio" name="answer" id="">
-                    <label for="">دوسرے</label>
-                </div>
-                <div class="option">
-                    <input type="radio" name="answer" id="">
-                    <label for="">چوتھے</label>
-                </div>
-                <div class="option">
-                    <input type="radio" name="answer" id="">
-                    <label for="">تیسرے</label>
-                </div>
-                <div class="option">
-                    <input type="radio" name="answer" id="">
-                    <label for="">پانچویں</label>
-                </div>
+        <div class="side-bar-item mt-20">
+            <div class="sub-title-urdu">
+                <p>تشہیر</p>
             </div>
-            <a href="#" class="answer-btn">جواب کے لئے کلک کریں</a>
+            <?php 
+                $ad_args = array (
+                    'post_type' => 'cpt_advertisements',
+                    'posts_per_page' => 1,
+                    'order' => 'DESC'
+                );
+                $ad_query = new wp_query($ad_args);
+            ?>
+            <?php if($ad_query->have_posts()): while($ad_query->have_posts()): $ad_query->the_post(); ?> 
+                <div class="content">
+                    <?php the_post_thumbnail(); ?>
+                </div>
+            <?php endwhile; wp_reset_postdata(); endif; ?>
         </div>
     </div>
-
-    <div class="side-bar-item mt-20">
-        <div class="sub-title-urdu">
-            <p>تشہیر</p>
-        </div>
-        <div class="content">
-            <img src="images/ad.png" alt="">
-        </div>
-    </div>
-</div>
 
 </section>
 

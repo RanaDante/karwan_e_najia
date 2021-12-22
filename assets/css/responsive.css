@@ -2,14 +2,11 @@
     .image{
         width: 32%;
     }
-    .image:last-of-type{
-        /* order:1; */
-        margin-left: auto;
-        margin-right: 20px;
-    }
+    
     .rec-videos{
         height: 380px;
     }
+    
 }
 @media (max-width:1210px){
     .wrapper {
@@ -27,6 +24,15 @@
     .rec-videos{
         height: 330px;
     }
+    .contact-col{
+        width: 48%;
+        margin-top: 20px;
+    }
+    .contact-col:last-child{
+        justify-self: center;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
 }
 @media screen and (max-width:1200px){
     .menu-bar {
@@ -41,21 +47,23 @@
     }
 }
 
-@media (max-width: 1024px){
+@media (max-width: 1040px){
     
-    .slide-content, .contact-col {
+    .slide-content{
         width: 50%;
     }
-
+    
     .contact-bar{
-        justify-content: center;
+        justify-content: space-between;
     }
     .content-wrap{
         flex-wrap: wrap;
     }
-    .content-wrap .item{
+
+    .content-wrap .item, .rbd_video{
         width: 48% !important; 
     }
+
     .content-wrap .item:last-of-type{
         margin: auto;
         margin-top: 20px;
@@ -73,11 +81,7 @@
     .news-item, .image{
         width: 49%;
     }
-    .image:last-of-type{
-        order:1;
-        margin:0px;
-        margin-top: 20px;
-    }
+    
     .footer-wrap{
         flex-wrap: wrap;
     }
@@ -121,6 +125,7 @@
     .rec-videos-item {
         width: 400px;
         flex-wrap: wrap;
+        margin: 5px;
         justify-content: flex-start;
     }
     .rec-videos-item .event-thumbnail, .rec-videos-item .video-title{
@@ -176,7 +181,7 @@
         flex-direction: column;
         flex-wrap: nowrap;
     }
-    .event-item, .news-item, .content-wrap .item{
+    .event-item, .news-item, .content-wrap .item,.contact-col, .rbd_video{
         width: 100% !important;
     }
     .content-img{
@@ -235,6 +240,16 @@
         width: 100% !important;
         order: 3;
     }
+    .kalaam-item{
+        flex-wrap: wrap;
+    }
+    .author-name {
+        width: 65%;
+    }
+    .content-name {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 /* @media screen and (max-width: 550px) {
     .ppq-audio-player .player-bar{
@@ -283,5 +298,9 @@
     .audio-download{
         order: 3;
         margin-top: 10px;
+    }
+    .author-name {
+        /* width: 65%; */
+        margin-bottom: 20px;
     }
 }
