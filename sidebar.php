@@ -1,5 +1,32 @@
 <div class="side-bar">
-    <?php if (!is_front_page()): ?>
+    <?php if(is_page(245)): ?>
+        <div class="side-bar-item">
+            <div class="sub-title-urdu">
+                <p>کالم</p>
+            </div>
+            
+            <?php 
+                $single_args = array (
+                    'post_type' => 'cpt_kaalams',
+                    'posts_per_page' => 4,
+                    'order' => 'DESC'
+                );
+                $single_query = new wp_query($single_args);
+            ?>
+
+            <?php if($single_query->have_posts()): while($single_query->have_posts()): $single_query->the_post(); ?>
+            <div class="side-bar-content-item">
+                <a href="<?php the_permalink(); ?>" class="blue"><h4><?php the_title(); ?></a></h4>
+                <p><?php the_excerpt(); ?></p>
+                <a href="<?php the_permalink(); ?>" class="side-bar-btn">مزیدپڑھیں</a>
+            </div>
+            <?php endwhile; wp_reset_postdata(); endif; ?>
+
+            <!-- <div class="show-more">
+                <a href="http://localhost/karwanenajia/news/" class="side-bar-btn">تمام خبریں</a>
+            </div> -->
+        </div>
+    <?php elseif (!is_front_page()): ?>
         <div class="side-bar-item">
             <div class="sub-title-urdu">
                 <p>مقبول خبریں</p>
@@ -28,6 +55,7 @@
         </div>
     <?php endif; ?>
     
+    
     <div class="side-bar-item ">
         <?php 
             $qustion_args = array (
@@ -38,16 +66,13 @@
             );
             $qustion_query = new wp_query($qustion_args);
         ?>
-        <div class="sub-title-urdu mt-20" >
+        <div class="sub-title-urdu " >
             <p>آج کا سوال</p>
         </div>
         <div class="content">
             <form action="#">
                 <?php if($qustion_query->have_posts()): while($qustion_query->have_posts()): $qustion_query->the_post(); ?>
                 <div class="content">
-                    <!-- <div class="right-answer" >
-                                <p>Answer is Correct</p>
-                            </div> -->
                     <p>
                         <?php the_title(); ?>
                     </p>

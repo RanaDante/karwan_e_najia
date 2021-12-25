@@ -36,7 +36,7 @@
 ?>
 
 <!DOCTYPE html>
-<html  <?php language_attributes(); ?> dir="rtl">
+<html <?php language_attributes(); ?> dir="rtl">
 
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -61,7 +61,7 @@
                 <!-- <p>پیر 15 نومبر 2021 - پیر، 9 ر بیع الثانی 1443</p> -->
                 <p><?php echo urdu_date(); echo "-"; echo (new hijri\datetime())->format("D، _j _M _Y");  ?> </p>
                 <?php if ( is_active_sidebar( 'social-1' ) ) : ?>
-                    <?php dynamic_sidebar( 'social-1' ); ?>
+                <?php dynamic_sidebar( 'social-1' ); ?>
                 <?php endif; ?>
             </div>
         </div>
@@ -77,15 +77,16 @@
                             $custom_logo_id = get_theme_mod( 'custom_logo' );
                             $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); 
                             if ( has_custom_logo() ): ?>
-                                <img src="<?php echo esc_url( $logo[0] ) ?>" class="img-responsive" alt="Website's logo">
+                        <img src="<?php echo esc_url( $logo[0] ) ?>" class="img-responsive" alt="Website's logo">
                         <?php 
                             else:
                         ?>
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.png" class="img-responsive" alt="Website's logo">
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.png"
+                            class="img-responsive" alt="Website's logo">
                         <?php endif; ?>
                     </div>
                 </a>
-                
+
                 <?php 
                     wp_nav_menu( array(
                         'menu' => 'Main Menu',
@@ -104,33 +105,37 @@
         <div class="mbl-menu">
 
             <div class="mbl-menu-header">
+
                 <a href="<?php echo home_url(); ?>">
                     <div class="logo">
-                    <?php
+                        <?php
                         $custom_logo_id = get_theme_mod( 'custom_logo' );
                         $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); 
                         if ( has_custom_logo() ): ?>
-                            <img src="<?php echo esc_url( $logo[0] ) ?>" class="img-responsive" alt="Website's logo">
-                    <?php 
+                        <img src="<?php echo esc_url( $logo[0] ) ?>" class="img-responsive" alt="Website's logo">
+                        <?php 
                         else:
                     ?>
-                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.png" class="img-responsive" alt="Website's logo">
-                    <?php endif; ?>
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.png"
+                            class="img-responsive" alt="Website's logo">
+                        <?php endif; ?>
                 </a>
-                </div>
-                <?php get_search_form(); ?>
-                <button class="hamburger">&#9776;</button>
-                <button class="cross" style="font-family: sans-serif;">&times;</button>
             </div>
+            
+            <button class="hamburger">&#9776;</button>
+            <button class="cross" style="font-family: sans-serif;">&times;</button>
+            
+            <?php get_search_form(); ?>
+        </div>
 
-            <?php 
-                    wp_nav_menu( array(
-                        'menu' => 'Main Menu',
-                        'menu_class' => '',
-                        'container' => 'div',
-                        'container_class' => 'menu'
-                    ) );
-                ?>
+        <?php 
+            wp_nav_menu( array(
+                'menu' => 'Main Menu',
+                'menu_class' => '',
+                'container' => 'div',
+                'container_class' => 'menu'
+            ) );
+        ?>
         </div>
 
     </header>

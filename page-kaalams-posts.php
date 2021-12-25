@@ -8,7 +8,7 @@
 
 <!-- POPULAR NEWS -->
 <section class="popular-news w-75">
-    <h1 class="h1">کالم مزید</h1>
+    <h1 class="h1"> تمام کالم </h1>
     <div class="news">
         <?php 
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

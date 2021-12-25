@@ -41,7 +41,7 @@
 
 <!-- POPULAR NEWS -->
 <section class="popular-news w-75">
-    <h1 class="h1">کالم</h1>
+    <h1 class="h1"> تمام کالم </h1>
     <div class="news">
         <?php 
             $kaalam_args = array (
