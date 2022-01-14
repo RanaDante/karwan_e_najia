@@ -158,6 +158,9 @@
     }
 }
 @media screen and (max-width: 768px) {
+    .search-bar{
+        top: 0px;
+    }  
     #overlay h1{
         font-size: 18px;
         font-weight: 400;
@@ -171,19 +174,23 @@
     .mbl-menu{
         padding: 0px;
     }
+    .side-bar-item {
+        margin-top: 20px;
+    }
     .mbl-menu-header{
         width: 90%;
         margin: 0 auto;
         padding-bottom: 15px;
     }.hamburger,
     .cross{
-        left: 3%;
+        top: 20%;
+        left: -2% !important;
     }
     .slide-content{
-        width: 50%;
+        width: 53%;
     }
     .slide-content p{
-        font-size: 18px;
+        font-size: 16px;
     }
     .events{
         flex-direction: column;
@@ -295,8 +302,8 @@
 
 @media screen and (max-width: 410px){
     .hamburger{
-        top: 80px;
-        left: 20px;
+        top: 20% !important;
+        left: 0px;
     }
     .audio-date, .audio-download{
         margin-bottom: 10px;

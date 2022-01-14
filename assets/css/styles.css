@@ -115,6 +115,7 @@ a {
 }
 
 .search-bar {
+    position: relative;
     border: 2px solid #fff;
     color: #fff;
     border-radius: 3px;
@@ -248,7 +249,9 @@ a {
     padding: 0% 10%;
     background-color: #0a2953;
 }
-
+.mbl-menu-header>a {
+    display:inline-block;
+}
 
 
 /* HERO IMAGE */
@@ -934,7 +937,9 @@ SECTION OF THE DAY
     margin-top: 10px;
     border: 0px;
     outline: 0px;
+    border-radius: 5px;
     cursor: pointer;
+
 }
 
 .side-bar .content img {

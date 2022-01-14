@@ -26,7 +26,10 @@
             <?php if($announcement_query->have_posts()): while($announcement_query->have_posts()): $announcement_query->the_post(); ?>
                 <li class="slider__images-item" style="background-image:url(<?php the_field('announcement_image'); ?>) ">
                     <div class="slide-content">
-                        <p><?php the_field('excerpt'); ?></p>
+                        <a href="<?php the_permalink(); ?>" class="event-link"><p><?php
+                            echo substr(wp_strip_all_tags(get_field('excerpt')),0,230) . "...."; ?>
+                        </p></a>
+                        <a href="<?php the_permalink(); ?>" class="event-link"> مزید <span class="border-btm"> دیکھیں </span></a>
                     </div>
                 </li>
                 
