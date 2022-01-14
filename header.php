@@ -104,7 +104,7 @@
         <div class="mbl-menu">
 
             <div class="mbl-menu-header">
-                <a href="<?php echo home_url(); ?>">
+                <!-- <a href="<?php //echo home_url(); ?>"> -->
                     <div class="logo">
                     <?php
                         $custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -116,7 +116,7 @@
                     ?>
                         <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.png" class="img-responsive" alt="Website's logo">
                     <?php endif; ?>
-                </a>
+                <!-- </a> -->
                 </div>
                 <?php get_search_form(); ?>
                 <button class="hamburger">&#9776;</button>
