@@ -8,9 +8,9 @@
     
 <?php 
     $kalaam_args = array (
-    'post_type' => 'cpt_kalaam',
-    'posts_per_page' => 1,
-    'order' => 'ASC'
+        'post_type' => 'cpt_kalaam',
+        'posts_per_page' => 1,
+        'order' => 'ASC'
     );
     $kalaam_query = new wp_query($kalaam_args); 
 ?>

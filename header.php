@@ -143,5 +143,6 @@
 
     <!-- HERO IMAGE -->
     <section class="hero-image">
-        <img src="<?php bloginfo('template_directory'); ?>/assets/images/Urdu-Banner-1.png" alt="">
+        <!-- <img src="<?php bloginfo('template_directory'); ?>/assets/images/Urdu-Banner-1.png" alt=""> -->
+        <img src="<?php header_image(); ?>" alt="">
     </section>

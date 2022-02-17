@@ -10,6 +10,7 @@ if(!function_exists('theme_setup')):
         add_theme_support('widgets');
         add_theme_support( 'custom-logo' );
         add_theme_support( 'woocommerce' );
+        add_theme_support( 'custom-header' );
     }
     
     function register_menu_locations() {
